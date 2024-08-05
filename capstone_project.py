@@ -64,11 +64,11 @@ def get_pie_chart(entered_site):
         filtered_df = filtered_df.groupby('Launch Site')['class'].sum().reset_index()
         fig = px.pie(filtered_df, values='class', 
         names='Launch Site', 
-        title='Launch Site Locations')
+        title='Number of Successful Launches For Each Launch Site Location')
         return fig
     else:
         filtered_df = filtered_df.loc[filtered_df['Launch Site'] == entered_site]['class'].value_counts().reset_index()
-        fig = px.pie(filtered_df, values='count', names='class', title='title')
+        fig = px.pie(filtered_df, values='count', names='class', title='Success Rate for Launch Site Location ' + entered_site)
         return fig
         # return the outcomes piechart for a selected site
     
